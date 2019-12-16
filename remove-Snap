@@ -1,0 +1,5 @@
+##Remove Snapshot
+$VMname = get-content C:\Name.txt
+## $Snapname = get-content C:\snapshotname.txt
+Get-vm -name $vmname | Get-Snapshot | Remove-Snapshot 
+Get-Snapshot -vm $VMname | Select-Object VM,Name,create,sizegb,sizemb, | ft | out-file -filepath c:\snapshot-report.txt
